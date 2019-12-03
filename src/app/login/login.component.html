@@ -1,0 +1,22 @@
+<section class="wrapper">
+    <form (ngSubmit)="formSubmit()" #formModel="ngForm">
+        <mat-card>
+                <mat-card-title>Login</mat-card-title>
+                <mat-card-content>
+                    <mat-form-field>
+                     <input matInput placeholder="login name" required [(ngModel)]="auth.name" name="username" autocomplete="username">
+                    </mat-form-field>
+                    <br>
+                    <mat-form-field>
+                        <input  matInput placeholder="Password" [type]="hide ? 'password' : 'text'" required [(ngModel)]="auth.password" name="password" autocomplete="current-password">
+                        <button type="button" mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+                            <mat-icon>{{hide ? "visibility_off" : "visibility"}}</mat-icon>
+                        </button>
+                    </mat-form-field>
+                </mat-card-content>
+                <mat-card-actions>
+                    <button type="submit" mat-stroked-button color="primary" [disabled]="!formModel.form.valid">Login</button>
+                </mat-card-actions>
+        </mat-card>
+</form>
+</section>
