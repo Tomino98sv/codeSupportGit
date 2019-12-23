@@ -17,7 +17,7 @@ export class AuthState {
     @Action(Login)
     login(context: StateContext<AuthModel>, action: Login) {
         context.setState({
-            username: action.auth.name,
+            username: action.auth.username,
             token: Math.floor(Math.random() * 100000) + ''
         });
     }
